@@ -11,7 +11,7 @@ const {
 
 export class Service {
     createFileStream(filename) {
-        return fs.createWriteStream(filename);
+        return fs.createReadStream(filename);
     }
 
     async getFileInfo(file) {
@@ -33,8 +33,11 @@ export class Service {
             name,
             type,
         } = await this.getFileInfo(file);
+
+    
         return {
-         stream: this.createFileStream()   
+         stream: this.createFileStream(name),
+         type   
         }
     }
 }

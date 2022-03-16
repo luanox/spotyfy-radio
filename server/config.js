@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 const currentDir = dirname(fileURLToPath(import.meta.url));
 const root = join( currentDir, '../');
 const audioDirectory = join( root, 'audio');
-const publicDirectory = join( root, 'audio');
+const publicDirectory = join( root, 'public');
 
 export default {
     port: process.env.PORT || 3000,
@@ -21,5 +21,10 @@ export default {
     },
     location: {
         home: '/home'
+    },
+    constants: {
+        '.html': 'text/html',
+        '.css': 'text/css',
+        '.js': 'text/javascript'
     }
 }

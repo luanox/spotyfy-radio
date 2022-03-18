@@ -23,8 +23,10 @@ export default {
         home: '/home'
     },
     constants: {
-        '.html': 'text/html',
-        '.css': 'text/css',
-        '.js': 'text/javascript'
+        CONTENT_TYPE: {
+            '.html': 'text/html',
+            '.css': 'text/css',
+            '.js': 'text/javascript'
+        }
     }
 }

@@ -30,11 +30,20 @@ async function routes(req, res) {
         return stream.pipe(res);
     }
 
+    // files
     if(method === 'GET') {
         const {
-            stream
+            stream,
+            type
         } = await controller.getFileStream(url);
 
+        const contentType = config.constants.CONTENT_TYPE[type]
+
+        if(contentType){
+            res.writeHead(200, {
+                'Content-Type': contentType
+            })
+        }
         return stream.pipe(res);
     }
 

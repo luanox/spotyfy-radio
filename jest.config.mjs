@@ -38,7 +38,22 @@ export default {
         'public'
       ],
       testMatch: [
-        '**/test/**/server/**/*.test.js',
+        '**/tests/**/server/**/*.test.js',
+      ]
+    },
+    {
+      ...defaultConfig,
+      testEnvironment: 'jsdom',
+      displayName: 'frontend',
+      collectCoverageFrom: [
+        'public/',
+      ],
+      transformPathIgnorePatterns: [
+        ...defaultConfig.transformPathIgnorePatterns,
+        'server'
+      ],
+      testMatch: [
+        '**/tests/**/public/**/*.test.js',
       ]
     }
   ]
